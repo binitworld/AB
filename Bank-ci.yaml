@@ -2,22 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build Frontend') {
+        stage('Build and Run Frontend') {
             steps {
                 script {
-                    echo 'Building frontend...'
+                    echo 'Building and running frontend...'
                     git 'https://github.com/binitworld/AB'
                     docker.build('frontend-image', '-f frontend/Dockerfile .')
+                    docker.image('frontend-image').run('-p 9000:80', '--name frontend-container')
                 }
             }
         }
 
-        stage('Build Backend') {
+        stage('Build and Run Backend') {
             steps {
                 script {
-                    echo 'Building backend...'
+                    echo 'Building and running backend...'
                     git 'https://github.com/binitworld/AB'
                     docker.build('backend-image', '-f backend/Dockerfile .')
+                    docker.image('backend-image').run('-p 5000:5000', '--name backend-container')
                 }
             }
         }
@@ -45,7 +47,9 @@ pipeline {
         always {
             script {
                 echo 'Cleaning up...'
+                docker.image('frontend-image').stop()
                 docker.image('frontend-image').remove()
+                docker.image('backend-image').stop()
                 docker.image('backend-image').remove()
             }
         }
