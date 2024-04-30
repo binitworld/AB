@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Bank</title>
+    <link rel="stylesheet" href="mainstyles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Images/logo.png" alt="Agile Bank Logo">
+        </div>
+        <div class="text">
+            <h1>The Agile Bank</h1>
+        </div>
+        <div class="search-bar">
+            <label for="search-input" class="visually-hidden">Search:</label>
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit">Search</button>
+            <button type="button" id="voice-search-button">
+                <img src="./Images/mic.png" alt="Voice Search">
+            </button>
+        </div>
+        
+        
+        <!-- Navigation dropdown button -->
+        <div class="dropdown">
+            <button class="dropdown-button">Menu &#9776;</button>
+            <div class="dropdown-content">
+                <a href="Transfer.html">Transfer</a>
+                <a href="account.html">Account</a>
+                <a href="security.html">Security</a>
+                <a href="Transction.html">Transactions</a>
+                <a href="index.html">Logout</a>
+            </div>
+        </div>
+        <!-- Dark mode dropdown button -->
+        <div class="dark-mode-toggle">
+            <button class="dark-mode-button">Dark Mode &#x26A1;</button>
+            <div class="dark-mode-dropdown">
+                <a href="#">Dark</a>
+                <a href="#">Light</a>
+                <a href="#">System Default</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Welcome to Agile Bank</h2>
+            <p id="typing-text"></p>
+            <h2>Our Services</h2>
+        </section>
+        
+        
+        <div class="main_screen">
+            <div class="card">
+                <a href="account.html"></a>
+                <p class="heading">Your Accounts</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <img src="./Images/Account.jpg" alt="">
+                <p>View and manage your bank accounts here.</p>
+            </div>
+            
+            <div class="card">
+                <p class="heading">Transactions</p>
+                <img src="./Images/Transaction .gif" alt="">
+                <p>Track your transaction history and details.</p>
+            </div>
+            <div class="card">
+                <a href="security.html"></a>
+                <p class="heading">Security</p>
+                <p></p>
+                <img src="./Images/Security.gif" alt="">
+                <p>Make secure your account</p>
+            </div>
+    
+            <div class="card">
+                <a href="Transction.html"></a>
+                <p class="heading">Payments Gateway</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <img src="./Images/Payment.gif" alt="">
+                <p>Update your personal information and settings.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Agile Bank. All rights reserved.</p>
+    </footer>
+
+    <script src="main
+scripts.js" defer></script>
+</body>
+
+</html>

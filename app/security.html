@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security - Agile Bank</title>
+    <link rel="stylesheet" href="Sequritystyles.css"> <!-- Assuming you have a CSS file for styling -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="./Images/logo.png" alt="Agile Bank Logo">
+        </div>
+        <div class="text">
+            <h1>The Agile Bank Costumer Care Centre</h1>
+        </div>
+        <!-- Navigation dropdown button -->
+        <div class="dropdown">
+            <button class="dropdown-button">Menu &#9776;</button>
+            <div class="dropdown-content">
+                <a href="main.html">Home</a>
+                <a href="Transfer.html">Transfer</a>
+                <a href="account.html">Account</a>
+                <a href="Transction.html">Transactions</a>
+                <a href="index.html">Logout</a>
+            </div>
+        </div>
+        <!-- Dark mode dropdown button -->
+        <div class="dark-mode-toggle">
+            <button class="dark-mode-button">Dark Mode &#x26A1;</button>
+            <div class="dark-mode-dropdown">
+                <a href="#">Dark</a>
+                <a href="#">Light</a>
+                <a href="#">System Default</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="security">
+            <h2>Security Measures</h2>
+            <p>At Agile Bank, we prioritize the security of our customers' accounts and transactions. Here are some important security measures and tips:</p>
+            <ul>
+                <li><strong>Customer Complaints Lodgement:</strong> If you encounter any issues or unauthorized transactions, you can lodge a complaint through our Customer Grievance Redressal System (CGRS). You can also contact the National Helpline at 180042500000.</li>
+                <li><strong>Cyber Security Awareness:</strong> Stay informed about cyber threats and how to protect yourself online. Regularly update your antivirus software and avoid clicking on suspicious links or downloading unknown attachments.</li>
+                <li><strong>Online Complaints:</strong> You can register complaints online through our CGRS portal. We take all complaints seriously and aim to resolve them promptly.</li>
+                <li><strong>Block Digital Transactions:</strong> In case of fraudulent digital transactions, you can block all digital channels by sending an SMS with the keyword "BLOCK" to 092310 00001.</li>
+                <li><strong>Reporting Of Cyber Crime Incidents:</strong> If you become a victim of cybercrime or unauthorized transactions, report the incident to your home branch and the cyber police. You can also register online complaints with the cyber police at https://www.cybercrime.gov.in/.</li>
+            </ul>
+            <button id="feedback-button">Contact Us (Report Your Problem)</button>
+            <!-- Feedback form (initially hidden) -->
+            <form id="feedback-form" style="display: none;">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="bank-id">Bank ID:</label>
+                <input type="text" id="bank-id" name="bank-id" required><br><br>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="cif-no">Your CIF No.:</label>
+                <input type="text" id="cif-no" name="cif-no" required><br><br>
+                <label for="issue-description">Describe the issue:</label><br>
+                <textarea id="issue-description" name="issue-description" required></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us at: <a href="mailto:custumercare@agilebank.com">custumercare@agilebank.com</a> | Phone: +91 79*3*321**</p>
+    </footer>
+
+    <script src="Securityscript.js"></script>
+</body>
+
+</html>

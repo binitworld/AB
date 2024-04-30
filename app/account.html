@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <link rel="stylesheet" href="accountstyle.css"> <!-- Link to your CSS file for styling -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Images/logo.png" alt="Agile Bank Logo">
+        </div>
+        <div class="text">
+            <h1>The Agile Bank</h1>
+        </div>
+        <div class="search-bar">
+            <label for="search-input" class="visually-hidden">Search:</label>
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="submit">Search</button>
+            <button type="button" id="voice-search-button">
+                <img src="./Images/mic.png" alt="Voice Search">
+            </button>
+        </div>
+        
+        <!-- Navigation dropdown button -->
+        <div class="dropdown">
+            <button class="dropdown-button">Menu &#9776;</button>
+            <div class="dropdown-content">
+                <a href="main.html">Home</a>
+                <a href="Transfer.html">Transfer</a>
+                <a href="security.html">Security</a>
+                <a href="Transction.html">Transactions</a>
+                <a href="index.html">Logout</a>
+            </div>
+        </div>
+        <!-- Dark mode dropdown button -->
+        <div class="dark-mode-toggle">
+            <button class="dark-mode-button">Dark Mode &#x26A1;</button>
+            <div class="dark-mode-dropdown">
+                <a href="#">Dark</a>
+                <a href="#">Light</a>
+                <a href="#">System Default</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1 style="text-align: center;">Account Management</h1>
+        <div class="section profile-info">
+            <h2>Personal Details</h2>
+            <div class="user-details">
+                <div class="photo-section">
+                    <img src="./Images/bunny.png" alt="Your Photo" id="user-photo">
+                </div>
+                <div class="details-text">
+                    <p><strong>Name:</strong> <span id="user-name">Binit Bhushan</span></p>
+                    <p><strong>Bank ID:</strong> <span id="bank-id">0123456789</span></p>
+                    <p><strong>Branch No.:</strong> <span id="branch-number">001</span></p>
+                    <p><strong>IFSC Code:</strong> <span id="ifsc-code">ABANK0000001</span></p>
+                    <p><strong>Phone Number:</strong> <span id="phone-number">+91 79030***61</span></p>
+                    <p><strong>Email Address:</strong> <span id="email-address">binit@agilebank.com</span></p>
+                    <p><strong>Password :</strong> <span id="Pass" >12***</span></p>
+                </div>
+            </div>            
+        </div>
+        <div class="section banking-details">
+            <h2>Banking Details</h2>
+            <p><strong>Account Type:</strong> <span id="account-type">Savings</span></p>
+            <p><strong>Account Balance:</strong> <span id="account-balance">$100,000</span></p>
+            <p><strong>Account Status:</strong> <span id="account-status">Active</span></p>
+            <p><strong>Recent Transactions:</strong> <a href="Transction.html">View</a></p>
+            <p><strong>Nominee:</strong> <span id="nominee">Mr.Binit Bhushan</span></p>
+            
+        </div>
+    </main>
+        
+    <footer>
+        <p>&copy; 2024 Agile Bank. All rights reserved.</p>
+    </footer>
+    <script src="accountscripts.js"></script>
+</body>
+</html>

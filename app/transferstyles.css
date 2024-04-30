@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+    background: #c1f58a; /* Update background color */  
+}
+
+/* Header styles */
+header {
+    background-color: #1f8cb7;
+    padding: 20px 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: filter 0.3s;
+    font-size: 20px;
+}
+
+.header:hover {
+    filter: drop-shadow(0 0 15px rgb(45, 4, 148)), drop-shadow(0 0 15px rgb(126, 83, 206));
+}
+
+.logo {
+    order: 1; /* Logo on the left side */
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    transition: filter 0.8s;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 15px rgb(248, 244, 2)) drop-shadow(0 0 15px rgb(126, 83, 206));
+}
+
+.text {
+    position: relative;
+    order: 4;
+}
+
+.dropdown,
+.dark-mode-toggle {
+    position: relative;
+    order: 5;
+}
+
+.dropdown {
+    margin-left: auto; /* Align to the right */
+}
+
+.dropdown-button,
+.dark-mode-button {
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dropdown-content,
+.dark-mode-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(229, 229, 157, 0.145);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    right: 0;
+    transition: display 0.3s;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+}
+
+.dropdown-content a,
+.dark-mode-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #000;
+    transition: filter 0.5s;
+}
+
+.dropdown-content:hover {
+    filter: drop-shadow(0 0 15px rgb(254, 250, 6)) drop-shadow(0 0 15px rgb(255, 255, 255));
+}
+
+.dark-mode-dropdown:hover {
+    filter: drop-shadow(0 0 15px rgb(248, 244, 2)) drop-shadow(0 0 15px rgb(173, 146, 15));
+}
+
+.dropdown:hover .dropdown-content,
+.dark-mode-toggle:hover .dark-mode-dropdown {
+    display: block;
+}
+
+/* Container styles */
+.container {
+    margin-top: 102px; /* Maintain the margin from the top */
+    max-width: 800px;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    padding: 20px;
+    text-align: center;
+    background-color: #9875ad;
+    transition: filter 0.8s;
+}
+
+.container:hover {
+    filter: drop-shadow(19px 2px 105px rgb(87, 208, 255)); /*drop-shadow(0 0 15px rgb(126, 83, 206)); */
+}
+
+/* Payment options styles */
+.payment-options {
+    margin-top: 50PX;
+    margin-bottom: 20px;
+    margin-left: 90PX;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Align items vertically */
+}
+
+.payment-options button,
+.payment-options input[type="number"] {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 19px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Different background colors for buttons */
+#upi-button {
+    background-color: #4CAF50;
+    color: #fff;
+    transition: filter 0.5s;
+}
+
+#credit-card-button {
+    background-color: #1E90FF;
+    color: #fff;
+    transition: filter 0.5s;
+}
+
+#debit-card-button {
+    background-color: #FF6347;
+    color: #fff;
+    transition: filter 0.5s;
+}
+
+#net-banking-button {
+    background-color: #FFD700;
+    color: #000;
+    transition: filter 0.5s;
+}
+
+.payment-options button:hover,
+.payment-options input[type="number"]:hover {
+    filter: brightness(1.2);
+}
+
+.container.hidden {
+    display: none;
+}
+
+.container.visible {
+    display: block;
+}
+
+.container form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.container form input,
+.container form select {
+    width: 100%;
+    max-width: 400px; /* Limit input width */
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.container form button[type="button"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container form button[type="button"]:hover {
+    filter: brightness(1.2);
+}
+
+/* Footer styles */
+footer {
+    background-color: #1f8cb7;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .container:not(.hidden) {
+        width: 100%;
+    }
+}

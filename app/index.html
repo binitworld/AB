@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="./Images/logo.png" alt="Agile Bank Logo">
+    </div>
+    <div class="text">
+      <h1>The Agile Bank</h1>
+    </div>
+    <div class="dark-mode-toggle">
+      <button class="dark-mode-button">Dark Mode &#x26A1;</button>
+      <div class="dark-mode-dropdown">
+        <a href="#">Dark</a>
+        <a href="#">Light</a>
+
+      </div>
+    </div>
+
+
+  </header>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="images/frontImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1"> Welcome back<br> To Agile Bank</span>
+          <span class="text-2">Let's enjoy the DevOps Bank with scalable performance </span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="./Images/backImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+      <div class="form-content">
+        <div class="login-form">
+          <div class="title">Login</div>
+
+
+          <form id="loginForm" action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input id="loginEmailInput" type="text" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input id="loginPasswordInput" type="password" placeholder="Enter your password" required>
+              </div>
+              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="button input-box">
+                <button id="loginSubmitButton" type="button">Submit</button>
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+            </div>
+          </form>
+
+
+        </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+
+
+
+          <form id="signupForm" action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input id="nameInput" type="text" placeholder="Enter your name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input id="emailInput" type="email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input id="passwordInput" type="password" placeholder="Enter your password" required>
+              </div>
+              <div class="button input-box">
+                <button id="signupSubmitButton" type="button">Submit</button>
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Agile Bank. All rights reserved.</p>
+    <!-- <p id="get">kfdl</p>
+    <button onclick="ggg()">Change Content</button> -->
+  </footer>
+  <script src="indexscripts.js"></script>
+</body>
+
+</html>

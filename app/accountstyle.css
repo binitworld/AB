@@ -1,0 +1,244 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+    background: #f5f58a; /* Update background color */  
+}
+
+/* Header styles */
+header {
+    background-color: #1f8cb7;
+    padding: 20px 0.1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: filter 0.3s;
+    font-size: 20px;
+}
+
+.header:hover {
+    filter: drop-shadow(0 0 15px rgb(45, 4, 148)), drop-shadow(0 0 15px rgb(126, 83, 206));
+}
+
+.logo {
+    order: 1; /* Logo on the left side */
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    transition: filter 0.8s;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 15px rgb(248, 244, 2)) drop-shadow(0 0 15px rgb(126, 83, 206));
+}
+
+.text {
+    position: relative;
+    order: 4;
+}
+
+.search-bar {
+    position: relative;
+    order: 5;
+    margin-left: auto;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 12px; /* Adjust padding for input field */
+    border: 2px solid #b4ec26; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    outline: none; /* Remove outline */
+    transition: border-color 0.3s; /* Add transition effect */
+}
+
+.search-bar input[type="text"]:focus {
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px rgb(237, 80, 23), 0 0 25px rgb(115, 187, 39);
+}
+
+.search-bar button {
+    padding: 8px 16px; /* Adjust padding for button */
+    background-color: #40545c; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add pointer cursor */
+    outline: none; /* Remove outline */
+    transition: background-color 0.3s; /* Add transition effect */
+}
+
+.search-bar button:hover {
+    background-color: #0e6387; /* Change background color on hover */
+}
+
+#voice-search-button {
+    background-color: transparent; /* Set background to transparent */
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+#voice-search-button img {
+    width: 24px; 
+    height: 22px;
+}
+
+.dropdown,
+.dark-mode-toggle {
+    position: relative;
+    order: 5;
+}
+
+.dropdown {
+    margin-left: auto; 
+}
+
+.dropdown-button,
+.dark-mode-button {
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dropdown-content,
+.dark-mode-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(229, 229, 157, 0.145);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    right: 0;
+    transition: display 0.3s;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+}
+
+.dropdown-content a,
+.dark-mode-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #000;
+    transition: filter 0.5s;
+}
+
+.dropdown-content:hover {
+    filter: drop-shadow(0 0 15px rgb(254, 250, 6)) drop-shadow(0 0 15px rgb(255, 255, 255));
+}
+
+.dark-mode-dropdown:hover {
+    filter: drop-shadow(0 0 15px rgb(248, 244, 2)) drop-shadow(0 0 15px rgb(173, 146, 15));
+}
+
+.dropdown:hover .dropdown-content,
+.dark-mode-toggle:hover .dark-mode-dropdown {
+    display: block;
+}
+
+/* Main styles */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 60px; /* Add margin at the bottom of the h1 tag */
+}
+
+.section {
+    width: 100%;
+    max-width: 800px; /* Increase the maximum width of the sections */
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column; /* Ensure child elements are stacked vertically */
+}
+
+.section h2 {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    text-align: center; /* Center-align the title */
+    margin-bottom: 20px; /* Add space between title and sections */
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.profile-info .photo-section {
+    margin-right: 20px; /* Ensure space between the image and details */
+}
+
+.profile-info .photo-section img {
+    width: 200px; /* Set the width of the image */
+    height: auto;
+}
+
+.user-details {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.user-details .photo-section {
+    margin-right: 20px; /* Space between the photo and the text details */
+}
+
+.user-details .details-text {
+    display: flex; /* Display the detail text as flex container */
+    flex-direction: column; /* Stack the detail text vertically */
+    flex-grow: 1; /* Allow the detail text to grow to fill remaining space */
+}
+
+.user-details .details-text p {
+    margin: 0; /* Remove default margin for paragraphs */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+}

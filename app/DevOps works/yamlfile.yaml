@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/binitworld/Banking-system-Architecture-.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        
+        stage('Deploy to AWS Elastic Beanstalk') {
+            steps {
+                script {
+                    awsEBUpload(application: 'Agile-Bank', bucket: 'AbBank', environment: 'JenkinsBuild', region: 'us-west-2', sourceBundle: 'Banking-System-Architecture.zip')
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            Clean up pack
+        }
+        
+        success {
+            echo 'Build succeeded! Deploying to AWS Elastic Beanstalk...'
+        }
+        
+        failure {
+            echo 'Build failed! Check the logs for details.'
+        }
+    }
+}
