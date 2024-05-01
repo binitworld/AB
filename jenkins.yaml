@@ -1,0 +1,35 @@
+pipeline:
+  agent:
+    any
+
+  stages:
+    - stage: Build
+      steps:
+        - script:
+            name: "Clone Repository"
+            echo 'Building backend Connection establosh with Docker on port 9000...'
+            git 'https://github.com/binitworld/AB'
+        - script:
+            name: "Build HTML, CSS, JavaScript"
+            sh 'npm install' 
+            sh 'npm run build' 
+
+    - stage: Test
+      steps:
+        - script:
+            name: "Run Tests"
+            
+            bpm test
+
+    - stage: Deploy
+      steps:
+        - script:
+            name: "Deploy to Server"
+            
+            
+
+  post:
+    always:
+      - script:
+          name: "Cleanup"
+          sh 'npm clean'
