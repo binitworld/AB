@@ -6,30 +6,27 @@ pipeline:
     - stage: Build
       steps:
         - script:
-            name: "Clone Repository"
-            echo 'Building backend Connection establosh with Docker on port 9000...'
-            git 'https://github.com/binitworld/AB'
-        - script:
-            name: "Build HTML, CSS, JavaScript"
-            sh 'npm install' 
-            sh 'npm run build' 
+            displayName: "Build Project"
+            script: |
+              echo 'Building backend Connection established with Docker on port 9000...'
+              git 'https://github.com/binitworld/AB'
+              sh 'npm install'
+              sh 'npm run build'
 
     - stage: Test
       steps:
         - script:
-            name: "Run Tests"
-            
-            bpm test
+            displayName: "Run Tests"
+            script: |
+              echo 'Running Tests...'
+              # Replace 'bpm test' with the actual command to run your tests
+              sh 'bpm test'
 
     - stage: Deploy
       steps:
         - script:
-            name: "Deploy to Server"
-            
-            
+            displayName: "Deploy to Server"
+            script: |
+              echo 'Deploying to Server...'
+              # Add your deployment commands here
 
-  post:
-    always:
-      - script:
-          name: "Cleanup"
-          sh 'npm clean'
