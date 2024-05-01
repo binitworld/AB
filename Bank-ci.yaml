@@ -1,49 +1,30 @@
 pipeline {
-  agent any
-
-  stages {
-    stage("Build") {
-      steps {
-        script {
-          echo 'Cloning repository...'
-          git 'https://github.com/binitworld/AB'
-          echo 'Building HTML, CSS, JavaScript...'
-          sh 'npm install'
-          sh 'npm run build'
+    agent any
+    
+    environment {
+        DOCKER_HUB_CREDENTIALS = credentials('3b4c2b87-5f1b-489b-9a04-bf62ae309466')
+        DOCKER_IMAGE_NAME = 'binitworld/agilebank'
+        DOCKER_TAG = 'latest'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Build your Docker image
+                sh 'docker build -t $DOCKER_IMAGE_NAME:$DOCKER_TAG .'
+            }
         }
-      }
-    }
-
-    stage("Test") {
-      steps {
-        script {
-          echo 'Running Tests...'
-          // Add commands to run your tests here
-          sh 'bpm test'
+        
+        stage('Push to Docker Hub') {
+            steps {
+                // Log in to Docker Hub using credentials
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: env.DOCKER_HUB_CREDENTIALS, usernameVariable: 'binitworld', passwordVariable: 'DOCKER_PASSWORD']]) {
+                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                }
+                
+                // Push the Docker image to Docker Hub
+                sh "docker push $DOCKER_IMAGE_NAME:$DOCKER_TAG"
+            }
         }
-      }
     }
-
-    stage("Deploy") {
-      steps {
-        script {
-          echo 'Building Docker image...'
-          sh 'docker build -t your_docker_username/agilebank:latest .'
-          echo 'Pushing Docker image to Docker Hub...'
-          sh 'docker push your_docker_username/agilebank:latest'
-          echo 'Deploying to Server...'
-          // Add deployment commands here
-        }
-      }
-    }
-  }
-
-  post {
-    always {
-      script {
-        echo 'Performing Cleanup...'
-        sh 'npm clean'
-      }
-    }
-  }
 }
