@@ -1,29 +1,52 @@
 pipeline {
     agent any
-    
-    environment {
-        DOCKER_HUB_CREDENTIALS = credentials('3b4c2b87-5f1b-489b-9a04-bf62ae309466')
-        DOCKER_IMAGE_NAME = 'binitworld/agilebank'
-        DOCKER_TAG = 'latest'
-    }
-    
+
     stages {
-        stage('Build') {
+        stage('Build Frontend') {
             steps {
-                // Build your Docker image
-                sh 'docker build -t $DOCKER_IMAGE_NAME:$DOCKER_TAG .'
+                script {
+                    echo 'Building frontend...'
+                    git 'https://github.com/binitworld/AB'
+                    docker.build('frontend-image', '-f frontend/Dockerfile .')
+                }
             }
         }
-        
-        stage('Push to Docker Hub') {
+
+        stage('Build Backend') {
             steps {
-                // Log in to Docker Hub using credentials
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: env.DOCKER_HUB_CREDENTIALS, usernameVariable: 'binitworld', passwordVariable: 'DOCKER_PASSWORD']]) {
-                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                script {
+                    echo 'Building backend...'
+                    git 'https://github.com/binitworld/AB'
+                    docker.build('backend-image', '-f backend/Dockerfile .')
                 }
-                
-                // Push the Docker image to Docker Hub
-                sh "docker push $DOCKER_IMAGE_NAME:$DOCKER_TAG"
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    echo 'Running tests...'
+                    docker.image('backend-image').run('--rm npm test')
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    echo 'Deploying to server...'
+                    // Add deployment commands here
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                echo 'Cleaning up...'
+                docker.image('frontend-image').remove()
+                docker.image('backend-image').remove()
             }
         }
     }
