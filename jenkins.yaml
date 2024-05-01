@@ -3,29 +3,41 @@ pipeline:
     any
 
   stages:
-    - stage: Build
+    - stage: "Build"
       steps:
         - script:
-            displayName: "Build Project"
+            name: "Clone Repository"
             script: |
-              echo 'Building backend Connection established with Docker on port 9000...'
-              git 'https://github.com/binitworld/AB'
+              echo 'Cloning repository...'
+              git 'https://github.com/binitworld/Shop-Sphere'
+        - script:
+            name: "Build HTML, CSS, JavaScript"
+            script: |
+              echo 'Building HTML, CSS, JavaScript...'
               sh 'npm install'
               sh 'npm run build'
 
-    - stage: Test
+    - stage: "Test"
       steps:
         - script:
-            displayName: "Run Tests"
+            name: "Run Tests"
             script: |
               echo 'Running Tests...'
-              # Replace 'bpm test' with the actual command to run your tests
-              sh 'bpm test'
+              # Add commands to run your tests here
+              bpm test
 
-    - stage: Deploy
+    - stage: "Deploy"
       steps:
         - script:
-            displayName: "Deploy to Server"
+            name: "Deploy to Server"
             script: |
               echo 'Deploying to Server...'
-              # Add your deployment commands here
+              # Add deployment commands here
+
+  post:
+    always:
+      - script:
+          name: "Cleanup"
+          script: |
+            echo 'Performing Cleanup...'
+            sh 'npm clean'
