@@ -29,14 +29,3 @@ pipeline:
             script: |
               echo 'Deploying to Server...'
               # Add your deployment commands here
-
-  # No cleanup step included
-
-  # post:
-  #   always:
-  #     - script:
-  #         displayName: "Cleanup"
-  #         script: |
-  #           echo 'Performing Cleanup...'
-  #           # Replace 'npm clean' with the actual command to clean up after the pipeline
-  #           sh 'npm clean'
